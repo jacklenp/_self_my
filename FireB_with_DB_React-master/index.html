@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="preloader__row">
+          <div class="preloader__item"></div>
+          <div class="preloader__item"></div>
+        </div>
+      </div>
+  <!-- 
+////////////////////////////////
+////////////////////////////////
+//////////////////////////////// 
+-->
+
+  <div class="container_nav" style="z-index: 1000!important">
+    <nav class="z-depth-0 grey lighten-4">
+      <div class="nav-wrapper container">
+        <div class="logo">
+          <a href="#!" class="brand-logo">
+            <img src="./img/lockup1.png" style="height: 64px" alt="logo1"><span class="nav_span">RESTapi</span>
+          </a>
+        </div>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="logged-in">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+          </li>
+          <li class="logged-in">
+            <a href="#" class="grey-text" id="logout">Logout</a>
+          </li>
+          <li class="logged-in">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Guide</a>
+          </li>
+          <li class="logged-in">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-wish">Create wishes</a>
+          </li>
+          <li class="logged-out">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+          </li>
+          <li class="logged-out">
+            <a href="#modalSignup" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+          </li>
+          <li>
+              <div class="filter">
+                  <!-- <div class="row"></div> -->
+                  <div class="input-field col s6">
+                      <input id="filter"  type="text" >
+                      <label for="filter">Input text</label>
+                  </div>
+              </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- !!!!!!Change ID to class!!!!!! -->
+    <ul class="sidenav" id="mobile-demo">
+      <li class="logged-in">
+        <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+      </li>
+      <li class="logged-in">
+        <a href="#" class="grey-text" id="logout">Logout</a>
+      </li>
+      <li class="logged-in">
+        <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Guide</a>
+      </li>
+      <li class="logged-out">
+        <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+      </li>
+      <li class="logged-out">
+        <a href="#modalSignup" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+      </li>
+    </ul>
+  </div>
+<!-- POP-UP container -->
+  <div class="pop-up_container">
+    <!--SIGN UP  Modal Structure -->
+    <div id="modal-signup" class="modal">
+      <div class="modal-content">
+        <h4>Sign up</h4>
+        <p>A bunch of text</p>
+        <!-- form -->
+        <form id="signup-form">
+          <div class="input-field">
+            <input type="email" id="signup_email" required>
+            <label for="signup_email">Email address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="signup_password" required>
+            <label for="signup-password">Choose password</label>
+          </div>
+          <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+        </form>
+        <!-- END form -->
+      </div>
+    </div>
+    <!-- Modal Trigger -->
+    <!-- <button data-target="modal" class="btn modal-trigger">Modal</button> -->
+    <!--Sign up  Modal Structure -->
+    <!--LOGIN  Modal Structure -->
+    <div id="modal-login" class="modal">
+      <!-- <div id="modal1" class="modal">  -->
+      <div class="modal-content">
+        <h4>Login</h4>
+        <!-- form -->
+        <form id="login-form">
+          <div class="input-field">
+            <input type="email" id="login_email" required>
+            <label for="login_email">Email address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="login_password" required>
+            <label for="login_password">Choose password</label>
+          </div>
+          <button class="btn yellow darken-2 z-depth-0">Login</button>
+          <!-- </div> -->
+        </form>
+        <!-- END form -->
+      </div>
+    </div>
+    <!--END LOGIN  Modal Structure -->
+
+    <!--ACCOUNT  Modal Structure -->
+    <div id="modal-account" class="modal popUp">
+      <!-- <div id="modal1" class="modal">  -->
+      <div class="modal-content center-align">
+        <h4>Account details</h4>
+        <div class="account-details"></div>
+      </div>
+    </div>
+    <!--END ACCOUNT  Modal Structure -->
+
+    <!--WISH GUIDE  Modal Structure -->
+    <div id="modal-create" class="modal create">
+      <!-- <div id="modal1" class="modal">  -->
+      <div class="modal-content">
+        <div class="row">
+          <div class="col s12">
+            <h4>Create Guide</h4>
+          </div>
+          <div class="col s12 l12 xl12">
+            <form class="create-form">
+              <div class="">
+                <h4>User info</h4>
+              </div>
+              <div class="input-field">
+                <input type="text" name="title" id="title" required>
+                <label for="title">Guide title</label>
+              </div>
+              <div class="input-field">
+                <textarea id="content" name="content" class="materialize-textarea" required></textarea>
+                <label for="content">Guide content</label>
+              </div>
+              <button class="btn yellow darken-2 z-depth-0">Create</button>
+            </form>
+          </div>
+          <!-- <div class="col s12 l6 xl7">
+      <form class="wish-form">
+        <div class="">
+          <h5>User info</h5>
+        </div>
+        <div class="input-field">
+          <input type="text" name="wishTitle" id="wishTitle">
+          <label for="wishTitle">Guide wishes</label>
+        </div>
+        <div class="input-field">
+          <textarea id="problem_content" name="problem_content" class="materialize-textarea"></textarea>
+          <label for="problem_content">Guide content</label>
+        </div>
+        <div class="input-field">
+          <textarea id="propouse_content" name="propouse_content" class="materialize-textarea"></textarea>
+          <label for="propouse_content">Guide content</label>
+        </div>
+        <button class="btn red darken-2 z-depth-0 addBtn">Add</button>
+      </form>
+    </div> -->
+        </div>
+        <!-- END form -->
+      </div>
+    </div>
+    <!--END WISH GUIDE  Modal Structure -->
+
+    <div id="modal-wish" class="modal createWish">
+      <!-- <div id="modal1" class="modal">  -->
+      <div class="modal-content">
+        <div class="row">
+          <div class="col s12 l6 xl7">
+            <form class="wish-form" id='wish-form'>
+              <!--   modal-wish     -->
+              <div class="">
+                <h5>User info</h5>
+              </div>
+              <div class="input-field">
+                <input type="text" name="wishTitle" id="wishTitle">
+                <label for="wishTitle">Guide wishes</label>
+              </div>
+              <div class="input-field">
+                <textarea id="problem_content" name="problem_content" class="materialize-textarea"></textarea>
+                <label for="problem_content">Guide content</label>
+              </div>
+              <div class="input-field">
+                <textarea id="propouse_content" name="propouse_content" class="materialize-textarea"></textarea>
+                <label for="propouse_content">Guide content</label>
+              </div>
+              <button class="btn red darken-2 z-depth-0 addBtn">Add</button>
+            </form>
+            <!-- END form -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END CREATE GUIDE  Modal Structure -->
+
+  </div>
+
+  <section class="head">
+    <div class="popupdiv" id="Popup">
+      <div class="popupdiv_p">
+        Hello user! You are Log in!
+      </div>
+    </div>
+
+    <div class="container_head">
+        <div class="filter">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="filter"  type="text" >
+                    <label for="filter">Input text</label>
+                </div>
+            </div>
+        </div>
+      <div class="img-pc">
+        <img src="./img/home-bg.jpg" alt="" class="container_head-img">
+      </div>
+      <div class="container_head-fon">
+          <h1>This is REST api APP</h1>
+          <h4>That's safeguards your privacy.</h4>
+          <p style="z-index: -300">
+            <button class="createWishBtn createGreen">Create Wish Card</button>
+          </p>
+          <p>
+            <button class="createBtn createGreen grey-text modal-trigger" data-target="modal-create">Create Guide</button><br>
+            <!-- <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Guide</a> -->
+     
+          </p>
+  
+          <!-- Modal Trigger -->
+          <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+        </div>
+        <div class="container_head-note">
+            <img src="./img/home-computers.png" alt="">
+        </div>
+    </div>
+
+    <div class="container_head-box">
+
+      
+    </div>
+  </section>
+  <div class="container_addCard">
+    <div class="container">
+      <!-- GUIDE List Modal Structure -->
+      <div class="row">
+        <div class="col s12 l5 xl4 container container_create">
+          <ul class="collapsible z-depth-0 guides" style="border: none;" data-collapsible="accordion">
+            <!-- <li>
+              <div class="collapsible-header grey"><i class="material-icons">filter_drama</i>First</div>
+              <div class="collapsible-body white"><span>Lorem ipsum dolor sit amet.</span></div>
+              </li> -->
+            <!-- <li>
+              <div class="collapsible-header grey"><i class="material-icons">place</i>Second</div>
+              <div class="collapsible-body white"><span>Lorem ipsum dolor sit amet.</span></div>
+              </li>
+              <li>
+              <div class="collapsible-header grey"><i class="material-icons">whatshot</i>Third</div>
+              <div class="collapsible-body white"><span>Lorem ipsum dolor sit amet.</span></div>
+              </li> -->
+          </ul>
+        </div>
+        <div class="col s12 l7 xl8 container guideWishesRow">
+        </div>
+      </div>
+    </div>
+    <!--END GUIDE List  Modal Structure -->
+  </div>
+  <p>
+      <button class="createBtn createGreen grey-text modal-trigger" data-target="modal-create">Create Guide</button><br>
+      <!-- <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Guide</a> -->
+
+    </p>
+  <footer class="page-footer" style="background-color: #6a6767">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Footer Content</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2014 Copyright Text
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- <script src="js/test.js"></script> -->
+
+
+
+  <!-- <script src="js/restApi.js"></script> -->
+
+  <script>
+      window.onload = function () {
+        document.body.classList.add('loaded');
+      }
+    </script>
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+  <script>
+    // fetch('https://rest-api20.firebaseio.com/').then(r=>console.log(r.json))
+    // Your web app's Firebase configuration
+    // var firebaseConfig = {
+    //     apiKey: "AIzaSyBXc093FIDO22KcenzQOM9NggBZdQAzdSE",
+    //     authDomain: "rest-api-48264.firebaseapp.com",
+    //     databaseURL: "https://rest-api-48264.firebaseio.com",
+    //     projectId: "rest-api-48264",
+    //     storageBucket: "rest-api-48264.appspot.com",
+    //     messagingSenderId: "868334850617",
+    //     appId: "1:868334850617:web:78aa137988ac74419933e8"
+    // };
+    // console.error(88888888888);
+    // var firebaseConfig = {
+    //   apiKey: "AIzaSyByGRzvYTCA9GjHpVTnBy1idGBESB1JmEQ",
+    //   authDomain: "rest-apiwdb.firebaseapp.com",
+    //   databaseURL: "https://rest-apiwdb.firebaseio.com",
+    //   projectId: "rest-apiwdb",
+    //   storageBucket: "rest-apiwdb.appspot.com",
+    //   messagingSenderId: "528249096849",
+    //   appId: "1:528249096849:web:0bbcc6dcd24dde4ed58d30"
+    // };
+
+    // var firebaseConfig = {
+    //   apiKey: "AIzaSyByGRzvYTCA9GjHpVTnBy1idGBESB1JmEQ",
+    //   authDomain: "rest-apiwdb.firebaseapp.com",
+    //   databaseURL: "https://rest-apiwdb.firebaseio.com",
+    //   projectId: "rest-apiwdb",
+    //   storageBucket: "rest-apiwdb.appspot.com",
+    //   messagingSenderId: "528249096849",
+    //   appId: "1:528249096849:web:0bbcc6dcd24dde4ed58d30"
+    // };
+    // // // Initialize Firebase
+    // firebase.initializeApp(firebaseConfig);
+
+    // const auth = firebase.auth()
+    // // console.log(auth);
+    // const db = firebase.firestore()
+
+    //update firestore settings
+    // db.settings({ timestampsInSnapshots: true }); /*old version-*/
+    // db.settings({Timestamp: true});
+  </script>
+  <!-- JavaScript at end of body for optimized loading  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/auth2.js"></script>
+
+</body>
+
+</html>
